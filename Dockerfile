@@ -2,13 +2,14 @@
 FROM mcr.microsoft.com/dotnet/sdk:8.0 AS build
 WORKDIR /src
 
-# Restore dependencies for both projects
-COPY RealState.csproj .
+# Copy the .csproj file and restore dependencies
+COPY RealEstate/RealState.csproj ./RealEstate/
+WORKDIR /src/RealEstate
 RUN dotnet restore
 
-# Build the RealEstate project
-WORKDIR /src/RealEstate
-RUN dotnet publish -c Release -o /app/build RealState.csproj
+# Copy the remaining files and build the project
+COPY RealEstate/. .
+RUN dotnet publish -c Release -o /app/build
 
 # Stage 2: Setup runtime environment and download dependencies
 FROM mcr.microsoft.com/dotnet/aspnet:8.0 AS runtime
