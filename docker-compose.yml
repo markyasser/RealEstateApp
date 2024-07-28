@@ -1,0 +1,29 @@
+version: '3.4'
+
+networks:
+  dev:
+    driver: bridge
+
+services:
+  realestate:
+    image: realestate_image
+    container_name: realestate
+    restart: always
+    networks:
+      - dev
+    ports:
+      - "80:80"
+  
+  mysql:
+    image: mysql:8.0
+    container_name: mysql
+    restart: always
+    networks:
+      - dev
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: RealState
+      MYSQL_USER: root
+      MYSQL_PASSWORD: root
+    ports:
+      - "3306:3306"
