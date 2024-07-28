@@ -20,9 +20,9 @@ pipeline {
         stage('Deploy') {
             steps {
                 script {
-                    // Save the Docker image and load it locally
+                    // Directly load the Docker image (no need for compression)
                     sh """
-                    docker save ${env.DOCKER_IMAGE_NAME} | bzip2 | bunzip2 | docker load
+                    docker save ${env.DOCKER_IMAGE_NAME} | docker load
                     """
 
                     // Move docker-compose.yml to the correct location
@@ -36,6 +36,22 @@ pipeline {
                     docker-compose -f ${env.DOCKER_COMPOSE_PATH} down
                     docker-compose -f ${env.DOCKER_COMPOSE_PATH} up -d --build
                     """
+                }
+            }
+        }
+
+        stage('Check Status') {
+            steps {
+                script {
+                    // Check the status of running containers
+                    sh """
+                    docker-compose -f ${env.DOCKER_COMPOSE_PATH} ps
+                    """
+
+                    // Optionally, you can check logs for a specific service
+                    // sh """
+                    // docker-compose -f ${env.DOCKER_COMPOSE_PATH} logs <service_name>
+                    // """
                 }
             }
         }
