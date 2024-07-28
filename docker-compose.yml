@@ -18,12 +18,11 @@ services:
     image: mysql:8.0
     container_name: mysql
     restart: always
-    networks:
-      - dev
     environment:
       MYSQL_ROOT_PASSWORD: root
-      MYSQL_DATABASE: RealState
-      MYSQL_USER: myuser   # This is a non-root user
-      MYSQL_PASSWORD: markos  # Password for the non-root user
+    networks:
+      - dev
+    volumes:
+      - data:/var/lib/mysql # Persist data even after container is destroyed
     ports:
       - "3306:3306"
