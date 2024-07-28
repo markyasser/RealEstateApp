@@ -6,7 +6,7 @@ networks:
 
 services:
   realestate:
-    image: realestate_image
+    image: realestate
     container_name: realestate
     restart: always
     networks:
