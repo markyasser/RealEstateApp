@@ -4,7 +4,7 @@ pipeline {
     environment {
         APP_NAME = "realestate"
         DOCKER_IMAGE_NAME = "${env.APP_NAME}:${env.BUILD_ID}"
-        SERVER = "mark@51.103.246.195"
+        SERVER = "mark@JenkinsTest"
         DOCKER_COMPOSE_PATH = "~/docker-compose.yml"
     }
 
