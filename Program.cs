@@ -14,6 +14,18 @@ var builder = WebApplication.CreateBuilder(args);
 // Database Connection
 var serverVersion = new MySqlServerVersion(new Version(8, 0, 29));
 var ConnectionString = builder.Configuration.GetConnectionString("DefaultConnection") ?? throw new InvalidOperationException("Connection string 'GlobalDbContext' not found.");
+using (var connection = new MySqlConnection(connectionString))
+        {
+            try
+            {
+                connection.Open();
+                Console.WriteLine("Connection successful.");
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Connection failed: {ex.Message}");
+            }
+        }
 builder.Services.AddDbContextPool<GlobalDbContext>(options =>
     options.UseMySql(ConnectionString, serverVersion)
                 .LogTo(Console.WriteLine, LogLevel.Information)
