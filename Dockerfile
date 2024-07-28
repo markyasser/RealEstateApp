@@ -3,12 +3,11 @@ FROM mcr.microsoft.com/dotnet/sdk:8.0 AS build
 WORKDIR /src
 
 # Copy the RealEstate project file and restore dependencies
-COPY RealEstate/RealState.csproj RealEstate/
-WORKDIR /src/RealEstate
+COPY RealState.csproj .
 RUN dotnet restore
 
 # Copy the remaining files and build the RealEstate project
-COPY RealEstate/. .
+COPY . .
 RUN dotnet publish -c Release -o /app/build
 
 # Stage 2: Setup runtime environment and download dependencies
@@ -22,4 +21,4 @@ COPY --from=build /app/build .
 EXPOSE 80
 
 # Set the entry point for the application
-ENTRYPOINT ["dotnet", "RealEstate.dll"]
+ENTRYPOINT ["dotnet", "RealState.dll"]
