@@ -41,7 +41,9 @@ pipeline {
                             docker-compose -f ${env.DOCKER_COMPOSE_PATH} up -d --build
                         '
                         """
+                        }
                     }
+                }
             }
         }
     }
