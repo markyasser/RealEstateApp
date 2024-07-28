@@ -7,6 +7,8 @@ using RealState.DbContexts;
 using RealState.Models;
 using Swashbuckle.AspNetCore.Filters;
 using System.Text;
+using MySql.Data.MySqlClient;
+using Microsoft.Extensions.Logging;
 
 
 var builder = WebApplication.CreateBuilder(args);
