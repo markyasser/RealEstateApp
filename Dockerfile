@@ -2,12 +2,12 @@
 FROM mcr.microsoft.com/dotnet/sdk:8.0 AS build
 WORKDIR /src
 
-# Copy the .csproj file and restore dependencies
-COPY RealEstate/RealState.csproj ./RealEstate/
+# Copy the RealEstate project file and restore dependencies
+COPY RealEstate/RealState.csproj RealEstate/
 WORKDIR /src/RealEstate
 RUN dotnet restore
 
-# Copy the remaining files and build the project
+# Copy the remaining files and build the RealEstate project
 COPY RealEstate/. .
 RUN dotnet publish -c Release -o /app/build
 
@@ -22,4 +22,4 @@ COPY --from=build /app/build .
 EXPOSE 80
 
 # Set the entry point for the application
-ENTRYPOINT ["dotnet", "RealState.dll"]
+ENTRYPOINT ["dotnet", "RealEstate.dll"]
