@@ -3,6 +3,10 @@
   "WorkspaceRootPath": "D:\\Work\\Bita Misr V2\\RealState\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{82003794-1877-440D-AF4A-6D4C953F5D8D}|RealState.csproj|d:\\work\\bita misr v2\\realstate\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{82003794-1877-440D-AF4A-6D4C953F5D8D}|RealState.csproj|solutionrelative:program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{82003794-1877-440D-AF4A-6D4C953F5D8D}|RealState.csproj|d:\\work\\bita misr v2\\realstate\\controllers\\authcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{82003794-1877-440D-AF4A-6D4C953F5D8D}|RealState.csproj|solutionrelative:controllers\\authcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
@@ -21,10 +25,6 @@
     {
       "AbsoluteMoniker": "D:0:0:{82003794-1877-440D-AF4A-6D4C953F5D8D}|RealState.csproj|d:\\work\\bita misr v2\\realstate\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
       "RelativeMoniker": "D:0:0:{82003794-1877-440D-AF4A-6D4C953F5D8D}|RealState.csproj|solutionrelative:appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{82003794-1877-440D-AF4A-6D4C953F5D8D}|RealState.csproj|d:\\work\\bita misr v2\\realstate\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{82003794-1877-440D-AF4A-6D4C953F5D8D}|RealState.csproj|solutionrelative:program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{82003794-1877-440D-AF4A-6D4C953F5D8D}|RealState.csproj|d:\\work\\bita misr v2\\realstate\\ops\\userops.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -50,10 +50,6 @@
           "Children": [
             {
               "$type": "Bookmark",
-              "Name": "ST:0:0:{1c4feeaa-4718-4aa9-859d-94ce25d182ba}"
-            },
-            {
-              "$type": "Bookmark",
               "Name": "ST:0:0:{74946827-37a0-11d2-a273-00c04f8ef4ff}"
             },
             {
@@ -70,7 +66,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 2,
               "Title": "LoginRequest.cs",
               "DocumentMoniker": "D:\\Work\\Bita Misr V2\\RealState\\ViewModels\\LoginRequest.cs",
               "RelativeDocumentMoniker": "ViewModels\\LoginRequest.cs",
@@ -83,7 +79,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 3,
               "Title": "RegisterRequest.cs",
               "DocumentMoniker": "D:\\Work\\Bita Misr V2\\RealState\\ViewModels\\RegisterRequest.cs",
               "RelativeDocumentMoniker": "ViewModels\\RegisterRequest.cs",
@@ -96,7 +92,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 4,
               "Title": "User.cs",
               "DocumentMoniker": "D:\\Work\\Bita Misr V2\\RealState\\Models\\User.cs",
               "RelativeDocumentMoniker": "Models\\User.cs",
@@ -148,7 +144,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 1,
               "Title": "AuthController.cs",
               "DocumentMoniker": "D:\\Work\\Bita Misr V2\\RealState\\Controllers\\AuthController.cs",
               "RelativeDocumentMoniker": "Controllers\\AuthController.cs",
@@ -161,26 +157,26 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 0,
               "Title": "Program.cs",
               "DocumentMoniker": "D:\\Work\\Bita Misr V2\\RealState\\Program.cs",
               "RelativeDocumentMoniker": "Program.cs",
               "ToolTip": "D:\\Work\\Bita Misr V2\\RealState\\Program.cs",
               "RelativeToolTip": "Program.cs",
-              "ViewState": "AQIAABIAAAAAAAAAAAAAABsAAAAAAAAA",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAkAAAAGAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-07-26T20:48:41.662Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 5,
               "Title": "appsettings.json",
               "DocumentMoniker": "D:\\Work\\Bita Misr V2\\RealState\\appsettings.json",
               "RelativeDocumentMoniker": "appsettings.json",
               "ToolTip": "D:\\Work\\Bita Misr V2\\RealState\\appsettings.json",
               "RelativeToolTip": "appsettings.json",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAwAAAAsAAAA",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAwAAAAFAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
               "WhenOpened": "2024-07-26T20:47:35.226Z",
               "EditorCaption": ""
