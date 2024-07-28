@@ -67,6 +67,16 @@ builder.Services.AddEndpointsApiExplorer();
 
 var app = builder.Build();
 
+// update database
+using (var scope = app.Services.CreateScope())
+{
+    var services = scope.ServiceProvider;
+    var context = services.GetRequiredService<GlobalDbContext>();
+    context.Database.Migrate();
+}
+
+
+
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
 {
