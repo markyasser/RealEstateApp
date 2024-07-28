@@ -73,7 +73,7 @@ using (var scope = app.Services.CreateScope())
     var services = scope.ServiceProvider;
     try
     {
-        var dbContext = serviceProvider.GetRequiredService<GlobalDbContext>();
+        var dbContext = services.GetRequiredService<GlobalDbContext>();
         dbContext.Database.Migrate(); // Apply pending migrations
         Console.WriteLine($"Migration Success GlobalDbContext");
     }
