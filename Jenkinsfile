@@ -20,26 +20,28 @@ pipeline {
 
         stage('Deploy') {
             steps {
-                sshagent(['your_ssh_credentials']) {
-                    // Save the Docker image and transfer it to the server
-                    sh """
-                    docker save ${env.DOCKER_IMAGE_NAME} | bzip2 | ssh -o StrictHostKeyChecking=no ${env.SERVER} 'bunzip2 | docker load'
-                    """
+                 script {
+                    // Replace 'your_ssh_credentials' with the actual ID of the SSH credentials
+                    sshagent(['349d484c-f9a7-4ff5-bf00-7b9769f7c31b']) {
+                        // Save the Docker image and transfer it to the server
+                        sh """
+                        docker save ${env.DOCKER_IMAGE_NAME} | bzip2 | ssh -o StrictHostKeyChecking=no ${env.SERVER} 'bunzip2 | docker load'
+                        """
 
-                    // Transfer docker-compose.yml to the server
-                    sh """
-                    scp -o StrictHostKeyChecking=no docker-compose.yml ${env.SERVER}:${env.DOCKER_COMPOSE_PATH}
-                    """
+                        // Transfer docker-compose.yml to the server
+                        sh """
+                        scp -o StrictHostKeyChecking=no docker-compose.yml ${env.SERVER}:${env.DOCKER_COMPOSE_PATH}
+                        """
 
-                    // Deploy using Docker Compose on the server
-                    sh """
-                    ssh -o StrictHostKeyChecking=no ${env.SERVER} '
-                        export COMPOSE_PROJECT_NAME=${env.APP_NAME}
-                        docker-compose -f ${env.DOCKER_COMPOSE_PATH} down
-                        docker-compose -f ${env.DOCKER_COMPOSE_PATH} up -d --build
-                    '
-                    """
-                }
+                        // Deploy using Docker Compose on the server
+                        sh """
+                        ssh -o StrictHostKeyChecking=no ${env.SERVER} '
+                            export COMPOSE_PROJECT_NAME=${env.APP_NAME}
+                            docker-compose -f ${env.DOCKER_COMPOSE_PATH} down
+                            docker-compose -f ${env.DOCKER_COMPOSE_PATH} up -d --build
+                        '
+                        """
+                    }
             }
         }
     }
