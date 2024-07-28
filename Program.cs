@@ -71,8 +71,16 @@ var app = builder.Build();
 using (var scope = app.Services.CreateScope())
 {
     var services = scope.ServiceProvider;
-    var context = services.GetRequiredService<GlobalDbContext>();
-    context.Database.Migrate();
+    try
+    {
+        var dbContext = serviceProvider.GetRequiredService<GlobalDbContext>();
+        dbContext.Database.Migrate(); // Apply pending migrations
+        Console.WriteLine($"Migration Success GlobalDbContext");
+    }
+    catch (Exception ex)
+    {
+        Console.WriteLine($"An error occurred while migrating the database: {ex.Message}");
+    }
 }
 
 
