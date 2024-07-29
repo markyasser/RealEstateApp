@@ -21,11 +21,9 @@ services:
       - "3306:3306"
 
   migrations:
-    container_name: service-migrations
     image: service-migrations
+    container_name: service-migrations
     build:
-      context: .
-      dockerfile: Dockerfile
       target: migrations
     depends_on:
         - mysql_db
