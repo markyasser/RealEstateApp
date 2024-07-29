@@ -32,6 +32,11 @@ namespace RealState.Controllers
             {
                 UserName = registerRequest.Username,
                 Email = registerRequest.Email,
+                ArabicUsername = registerRequest.ArabicUsername,
+                IDNumber = registerRequest.IDNumber,
+                JobTitle = registerRequest.JobTitle,
+                Address = registerRequest.Address
+
             };
 
             var result = await _userManager.CreateAsync(user, registerRequest.Password);
