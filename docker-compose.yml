@@ -3,6 +3,8 @@ version: '3.4'
 networks:
   dev:
     driver: bridge
+volumes:
+  mysql_data:
 
 services:
   realestate:
@@ -14,7 +16,7 @@ services:
     depends_on:
       - mysql_db
     ports:
-      - "81:80"
+      - "80:80"
   
   mysql_db:
     image: mysql:8.0
@@ -24,5 +26,7 @@ services:
       MYSQL_ROOT_PASSWORD: root
     networks:
       - dev
+    volumes:
+      - mysql_data:/var/lib/mysql
     ports:
       - "3306:3306"
