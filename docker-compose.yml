@@ -19,7 +19,7 @@ services:
       - mysql_data:/var/lib/mysql
     ports:
       - "3306:3306"
-      
+
   realestate:
     image: realestate
     container_name: realestate
@@ -28,6 +28,8 @@ services:
       - dev
     depends_on:
       - mysql_db
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
     ports:
       - "80:80"
   
