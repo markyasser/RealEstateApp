@@ -32,7 +32,8 @@ builder.Services.AddDbContextPool<GlobalDbContext>(options =>
     options.UseMySql(ConnectionString, serverVersion)
                 .LogTo(Console.WriteLine, LogLevel.Information)
                 .EnableSensitiveDataLogging()
-                .EnableDetailedErrors());
+                .EnableDetailedErrors()
+                .EnableRetryOnFailure());
 
 // Identity
 builder.Services.AddIdentity<User, IdentityRole>()
