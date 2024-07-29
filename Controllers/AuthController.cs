@@ -79,7 +79,11 @@ namespace RealState.Controllers
             {
                 new Claim(ClaimTypes.NameIdentifier, user.Id.ToString()),
                 new Claim(ClaimTypes.Name, user.UserName),
-                new Claim(ClaimTypes.Email, user.Email)
+                new Claim(ClaimTypes.Email, user.Email),
+                new Claim("ArabicUsername", user.ArabicUsername),
+                new Claim("IDNumber", user.IDNumber),
+                new Claim("JobTitle", user.JobTitle),
+                new Claim("Address", user.Address)
             };
 
 
