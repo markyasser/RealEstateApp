@@ -16,7 +16,7 @@ pipeline {
                 }
             }
         }
-        stage('Dotnet ef update database') {
+        stage('Run Migrations') {
             steps {
                 script {
                     docker.image(env.DOCKER_IMAGE_NAME).inside {
