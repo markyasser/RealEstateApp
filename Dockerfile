@@ -11,7 +11,6 @@ COPY . .
 RUN dotnet publish -c Release -o /app/build
 
 ### FOR TESTIN MIGRATION
-FROM build as migrations
 RUN dotnet tool install --version 6.0.9 --global dotnet-ef
 ENV PATH="${PATH}:/root/.dotnet/tools"
 ENTRYPOINT dotnet-ef database update -p RealState.csproj -s RealState.csproj
