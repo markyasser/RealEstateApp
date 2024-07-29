@@ -16,7 +16,18 @@ pipeline {
                 }
             }
         }
-
+        stage('Dotnet ef update database') {
+            steps {
+                script {
+                    // Update the database using EF Core migrations inside realestate docker image
+                    docker.image(env.DOCKER_IMAGE_NAME).inside {
+                        sh """
+                        dotnet ef database update
+                        """
+                    }
+                }
+            }
+        }
         stage('Deploy') {
             steps {
                 script {
@@ -40,21 +51,7 @@ pipeline {
             }
         }
 
-        stage('Check Status') {
-            steps {
-                script {
-                    // Check the status of running containers
-                    sh """
-                    docker-compose -f ${env.DOCKER_COMPOSE_PATH} ps
-                    """
-
-                    // Optionally, you can check logs for a specific service
-                    // sh """
-                    // docker-compose -f ${env.DOCKER_COMPOSE_PATH} logs <service_name>
-                    // """
-                }
-            }
-        }
+        
     }
 
     post {
