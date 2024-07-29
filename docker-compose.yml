@@ -1,5 +1,3 @@
-version: '3.4'
-
 networks:
   dev:
     driver: bridge
@@ -24,20 +22,16 @@ services:
     image: service-migrations
     container_name: service-migrations
     build:
-      context: .
-      dockerfile: Dockerfile
       target: migrations
     depends_on:
         - mysql_db
-        
+
 
   realestate:
     image: realestate
     container_name: realestate
     restart: always
     build:
-      context: .
-      dockerfile: Dockerfile
       target: runtime
     networks:
       - dev
