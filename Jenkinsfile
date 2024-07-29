@@ -20,15 +20,14 @@ pipeline {
             steps {
                 script {
                     docker.image(env.DOCKER_IMAGE_NAME).inside {
-                        withEnv(["ASPNETCORE_ENVIRONMENT=Development", "ConnectionStrings__DefaultConnection=Server=mysql_db;Database=your_database;User=root;Password=root;"]) {
-                            sh """
-                            dotnet ef database update --project /app/build/RealState.csproj
-                            """
-                        }
+                        sh """
+                        dotnet ef database update --project /app/build/RealState.csproj
+                        """
                     }
                 }
             }
         }
+
         stage('Deploy') {
             steps {
                 script {
