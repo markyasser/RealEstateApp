@@ -7,17 +7,6 @@ volumes:
   mysql_data:
 
 services:
-  realestate:
-    image: realestate
-    container_name: realestate
-    restart: always
-    networks:
-      - dev
-    depends_on:
-      - mysql_db
-    ports:
-      - "80:80"
-  
   mysql_db:
     image: mysql:8.0
     container_name: mysql_db
@@ -30,3 +19,15 @@ services:
       - mysql_data:/var/lib/mysql
     ports:
       - "3306:3306"
+      
+  realestate:
+    image: realestate
+    container_name: realestate
+    restart: always
+    networks:
+      - dev
+    depends_on:
+      - mysql_db
+    ports:
+      - "80:80"
+  
