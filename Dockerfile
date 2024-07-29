@@ -10,9 +10,12 @@ RUN dotnet restore
 COPY . .
 RUN dotnet publish -c Release -o /app/build
 
-
-# Install dotnet-ef tool in runtime container as well
-RUN dotnet tool install --global dotnet-ef
+### FOR TESTIN MIGRATION
+FROM build as migrations
+RUN dotnet tool install --version 6.0.9 --global dotnet-ef
+ENV PATH="${PATH}:/root/.dotnet/tools"
+ENTRYPOINT dotnet-ef database update -p RealState.csproj -s RealState.csproj
+############################################
 
 # Stage 2: Setup runtime environment and download dependencies
 FROM mcr.microsoft.com/dotnet/aspnet:8.0 AS runtime

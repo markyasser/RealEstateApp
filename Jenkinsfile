@@ -16,18 +16,6 @@ pipeline {
                 }
             }
         }
-        stage('Run Migrations') {
-            steps {
-                script {
-                    docker.image(env.DOCKER_IMAGE_NAME).inside {
-                        sh """
-                        dotnet ef database update --project /app/build/RealState.csproj
-                        """
-                    }
-                }
-            }
-        }
-
         stage('Deploy') {
             steps {
                 script {
