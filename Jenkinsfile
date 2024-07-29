@@ -19,11 +19,12 @@ pipeline {
         stage('Dotnet ef update database') {
             steps {
                 script {
-                    // Update the database using EF Core migrations inside realestate docker image
                     docker.image(env.DOCKER_IMAGE_NAME).inside {
-                        sh """
-                        dotnet ef database update
-                        """
+                        withEnv(["ASPNETCORE_ENVIRONMENT=Development", "ConnectionStrings__DefaultConnection=Server=mysql_db;Database=your_database;User=root;Password=root;"]) {
+                            sh """
+                            dotnet ef database update --project /app/build/RealState.csproj
+                            """
+                        }
                     }
                 }
             }

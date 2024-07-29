@@ -10,12 +10,16 @@ RUN dotnet restore
 COPY . .
 RUN dotnet publish -c Release -o /app/build
 
+
 # Stage 2: Setup runtime environment and download dependencies
 FROM mcr.microsoft.com/dotnet/aspnet:8.0 AS runtime
 WORKDIR /app
 
 # Copy the built files from the build stage
 COPY --from=build /app/build .
+
+# Install dotnet-ef tool in runtime container as well
+RUN dotnet tool install --global dotnet-ef
 
 # Expose port
 EXPOSE 80
